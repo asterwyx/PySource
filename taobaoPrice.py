@@ -3,10 +3,10 @@ import re
 
 def getHTMLText(url):
     try:
-        r = requests.get(url, header={'User-Agent':'Mozilla5.0'})
+        r = requests.get(url, header={'User-Agent':'Mozilla5.0'},timeout=30)
         r.raise_for_status()
         r.encoding = r.apparent_encoding
-        with open(".\\taobaoxinxi.txt", w) as f:
+        with open("./taobaoxinxi.txt", w) as f:
             f.write(r.text)
         return r.text
     except:

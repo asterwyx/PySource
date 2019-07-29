@@ -1,21 +1,24 @@
+# -*- enconding:utf-8 -*-
 import requests
 import re
+import traceback
 
 def getHTMLText(url):
     try:
-        r = requests.get(url, header={'User-Agent':'Mozilla5.0'},timeout=30)
+        r = requests.get(url, headers={'User-Agent':'Mozilla/5.0'}, timeout=30)
         r.raise_for_status()
         r.encoding = r.apparent_encoding
-        with open("./taobaoxinxi.txt", w) as f:
+        with open("./taobaoxinxi.txt", 'w') as f:
             f.write(r.text)
         return r.text
     except:
+        traceback.print_exc()
         return ""
 
 def parsePage(ilt, html):
     if html:
-        plt = re.findall(r'\"view_price\"\:\"[\d\.]*\"', html)
-        tlt = re.findall(r'\"raw_title\"\:\".*?\"', html)
+        plt = re.findall(r'\"view_price\":\"[\d\.]*\"', html) 
+        tlt = re.findall(r'\"raw_title\":\".*?\"', html)
         if plt or tlt:
             print("爬取成功！")
         try:
@@ -44,7 +47,7 @@ def main():
     goods = "扩展坞" # 这是我们的搜索关键词，通过传入搜索关键词组成我们的url
 # 设定向下一页爬取的深度，这里我们设置为2，也就是说我们只爬取两页的信息
     depth = 2
-    start_url = "https://s.taobao.com/search?q=" + goods
+    start_url = "https://s.taobao.com/search?q=" + goods + "&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20190724&ie=utf8&bcoffset=3&ntoffset=3&p4ppushleft=1%2C48"
     infoList = [] # 我们用infoList来存储我们的商品信息
     for i in range(depth):
         try:

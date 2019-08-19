@@ -1,5 +1,7 @@
 # use SAX to parse xml
 from xml.parsers.expat import ParserCreate
+
+
 class DefaultSAXHandler(object):
     def start_element(self, name, attrs):
         print("SAX:start_element: %s, attrs: %s" % (name, str(attrs)))

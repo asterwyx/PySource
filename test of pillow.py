@@ -8,12 +8,12 @@ def rndchar():
 
 # 随机颜色1
 def rndcolor():
-    return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
+    return random.randint(64, 255), random.randint(64, 255), random.randint(64, 255)
 
 
 # 随机颜色2
 def rndcolor2():
-    return (random.randint(32, 127), random.randint(32, 127), random.randint(32, 127))
+    return random.randint(32, 127), random.randint(32, 127), random.randint(32, 127)
 
 
 # 规定图片大小
@@ -23,7 +23,7 @@ height = 60
 # 创建白底的新图片
 image = Image.new('RGB', (width, height), (255, 255, 255))
 # 创建font对象
-font = ImageFont.load_default()
+font = ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSansMono-Oblique.ttf', 36)
 # 创建draw对象
 draw = ImageDraw.Draw(image)
 # 填充每一个像素
@@ -33,7 +33,7 @@ for x in range(width):
 
 # 输出文字
 for t in range(4):
-    draw.text((60*t + 10, 10), rndcolor(), font=font, fill=rndcolor2())
+    draw.text((60*t + 10, 10), text=rndchar(), font=font, fill=rndcolor2())
 image = image.filter(ImageFilter.BLUR)
 image.save("code.jpg", 'jpeg')
 

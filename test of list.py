@@ -8,10 +8,10 @@ for x in number:
 print(sum)
 for classmate in classmates:
     print(classmate)
-# name = input('Please enter your name:')
-# classmates.append(name)
+# old_name = input('Please enter your old_name:')
+# classmates.append(old_name)
 # print(classmates)
-# classmates.insert(0,name)
+# classmates.insert(0,old_name)
 # print(classmates)
 # classmates.pop(2)
 # print(classmates)

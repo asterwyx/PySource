@@ -1,4 +1,6 @@
 import hmac, random
+
+
 def hmac_md5(key, s):
     return hmac.new(key.encode('utf-8'), s.encode('utf-8'), 'MD5').hexdigest()
 
@@ -8,6 +10,7 @@ class User(object):
         self.username = username
         self.key = ''.join([chr(random.randint(48, 122)) for i in range(20)])
         self.password = hmac_md5(self.key, password)
+
 
 users = {
     'michael': User('machael', '123456'),
@@ -19,6 +22,7 @@ users = {
 def login(username, password):
     user = users[username]
     return user.password == hmac_md5(user.key, password)
+
 
 assert login('michael', '123456')
 assert login('bob', 'abc999')

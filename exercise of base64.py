@@ -1,4 +1,6 @@
 import base64
+
+
 def safe_base64_decode(s):
     print(type(s))
     l = 4 - len(s) % 4
@@ -9,6 +11,7 @@ def safe_base64_decode(s):
         return base64.b64decode(s)
     else:
         return base64.b64decode(s)
+
 
 print(type(b'abcd'))
 print(b'abcd'.decode('utf-8'))

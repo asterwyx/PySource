@@ -1,4 +1,5 @@
-import time, sys, queue
+import queue
+import time
 from multiprocessing.managers import BaseManager
 
 
@@ -24,6 +25,6 @@ for i in range(10):
         r = '%d * %d = %d' % (n, n, n * n)
         time.sleep(1)
         result.put(r)
-    except Queue.Empty:
+    except queue.Queue.Empty:
         print('task queue is empty.')
 print('worker exit.')

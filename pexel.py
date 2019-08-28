@@ -13,7 +13,7 @@ for tit, src in zip(tit_list, src_list):
     # 3.下载视频
     response = requests.get("https:" + src)
     # 4.保存视频
-    filename = "video\\" + tit +".mp4"
+    filename = "video\\" + tit + ".mp4"
     print("正在保存视频文件：" + filename)
     with open(filename, "wb") as f:
         f.write(response.content)

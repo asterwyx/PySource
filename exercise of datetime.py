@@ -6,7 +6,8 @@ def to_timestamp(dt_str, tz_str):
     dt = datetime.strptime(dt_str, '%Y-%m-%d %H:%M:%S')
     re_utc = re.compile(r'^UTC([\+\-]*)(\d+)\:(\d+)$')
     utc = re_utc.match(tz_str)
-    dt_utc = dt.replace(tzinfo=timezone(timedelta(hours=int(utc.group(1) + utc.group(2)), minutes=int(utc.group(1) + utc.group(3)))))
+    dt_utc = dt.replace(tzinfo=timezone(timedelta(hours=int(utc.group(1) + utc.group(2)),
+                                                  minutes=int(utc.group(1) + utc.group(3)))))
     dt_timestamp = dt_utc.timestamp()
     return dt_timestamp
 

@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import lxml
 url = "https://item.jd.com/100000177764.html"
 try:
     r = requests.get(url)

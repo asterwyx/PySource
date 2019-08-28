@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 import unittest
+
+
 class Student(object):
     def __init__(self, name, score):
         self.name = name
         self.score = score
+
     def get_grade(self):
-        if self.score >= 80 and self.score <= 100:
+        if 80 <= self.score <= 100:
             return 'A'
-        elif self.score >= 60 and self.score < 80:
+        elif 60 <= self.score < 80:
             return 'B'
-        elif self.score < 60 and self.score >= 0:
+        elif 60 > self.score >= 0:
             return 'C'
         else:
             raise ValueError
@@ -42,6 +45,7 @@ class TestStudent(unittest.TestCase):
             s1.get_grade()
         with self.assertRaises(ValueError):
             s2.get_grade()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,6 +1,6 @@
 # 用__slots__限制一个实例的可绑定属性
 class Student(object):
-    __slots__ = ('name', 'age')
+    __slots__ = ('old_name', 'age')
 
 s = Student()
 s.name = 'Cecil'

@@ -84,11 +84,11 @@ test8 = power(1.5,3.5)
 print(test6,test7,test8)
 
 # 测试多个默认参数
-# def print_person_information(name,gender,age = 18,city = '北京'):
-#     print('name:',name,'gender:',gender,'age:',age,'city:',city)
-# name = input('Please enter your name:')
+# def print_person_information(old_name,gender,age = 18,city = '北京'):
+#     print('old_name:',old_name,'gender:',gender,'age:',age,'city:',city)
+# old_name = input('Please enter your old_name:')
 # gender = input('Please enter your gender:')
-# print_person_information(name,gender)
+# print_person_information(old_name,gender)
 # print_person_information('Cecil','男',19,'武汉')
 # print_person_information('Cecil','男',19)
 # print_person_information('Cecil','男',city = '武汉')

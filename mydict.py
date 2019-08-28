@@ -1,5 +1,5 @@
 class Mydict(dict):
-    '''
+    """
     Simple dict but also support access as x.y style.
 
     >>> d1 = Mydict()
@@ -20,7 +20,7 @@ class Mydict(dict):
     Traceback (most recent call last):
     ...
     AttributeError: 'Mydict' object has no attribute 'empty'
-    '''
+    """
     def __init__(self, **kw):
         super(Mydict, self).__init__(**kw)
 

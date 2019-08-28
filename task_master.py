@@ -22,8 +22,8 @@ def get_result_queue():
 class QueueManager(BaseManager):
     pass
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
 
     # 把两个queue都注册到网络上去，callable参数关联了Queue对象
     QueueManager.register('get_task_queue', callable=get_task_queue)
@@ -34,7 +34,6 @@ if __name__ == '__main__':
 
     # 启动Queue
     manager.start()
-
 
     # 获得通过网络访问的Queue对象
     task = manager.get_task_queue()

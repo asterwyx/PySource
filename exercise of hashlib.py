@@ -6,6 +6,7 @@ users = {
     'alice': '99b1c2188db85afee403b1536010c2c9'
 }
 
+
 def login(username, password):
     password_md5 = hashlib.md5()
     password_md5.update(password.encode('utf-8'))
@@ -15,6 +16,7 @@ def login(username, password):
     else:
         print('password error')
         return 0
+
 
 assert login('michael', '123456')
 assert login('bob', 'abc999')

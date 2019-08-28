@@ -1,6 +1,6 @@
 from io import StringIO
 import pickle
-d = {'name':'Bob', 'age':20, 'score':88}
+d = {'old_name':'Bob', 'age':20, 'score':88}
 print(pickle.dumps(d)) # 将一个变量序列化
 f = open('dump.txt', 'wb')
 pickle.dump(d, f) # 将一个变量序列化之后直接写到文件对象dump.txt中

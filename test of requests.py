@@ -19,7 +19,8 @@ if __name__ == '__main__':
         with open('bi-douban.txt', 'wb') as f:
             f.write(r.content)
         r.encoding = r.apparent_encoding
-        with open('douban.txt', 'w') as f:
+        print(r.encoding)
+        with open('douban.txt', 'w', encoding=r.encoding) as f:
             f.write(r.text)
     except:
         traceback.print_exc()
@@ -46,8 +47,34 @@ if __name__ == '__main__':
         print(r.text)
     except:
         print("Status Error!")
+    # 使用data参数在post请求中传入dict形式数据
+    # r = requests.post("https://accounts.douban.com/login", data={'form-phonenumber': '18120339968',
+    #                                                              'form-password': 'db5201314yx@love'})
 
-    r = requests.post("https://accounts.douban.com/login", data={'form-phonenumber': '18120339968',
-                                                                 'form-password': 'db5201314yx@love'})
     # print(r.text)
     print(r.status_code)
+
+    # 查看cookies
+    print(r.cookies)
+"""
+下面为一些不可执行的示例代码
+"""
+# requests默认使用application/x-www-form-urlencoded对POST数据编码。
+# 可以编辑json参数直接传入json数据
+try:
+    params = {'key': 'value'}
+    r = requests.post("url", json=params)
+except:
+    pass
+# 传入的json参数为dict格式，在内部会自动序列化JSON
+# 也可以上传文件，本来是需要更复杂的编码格式，但是在requests模块中只需要将文件当作files参数传递就行
+try:
+    upload_files = {'file': open('example.xls', 'rb')}
+    r = requests.post("url", files=upload_files)
+    print(r.cookies['ts'])  # 可以使用这种方式获取特定的cookie
+    cs = {'token': '12345', 'status': 'working'}
+    r = requests.post("url", cookies=cs)  # 也可以使用这种方式来传入cookies
+    r2 = requests.get("url", timeout=2.5)  # 使用以秒为单位的timeout参数来规定超时设置
+except:
+    pass
+# 在读取文件时，务必使用rb模式即二进制模式读取，这样才能保证获取的bytes长度是文件的长度

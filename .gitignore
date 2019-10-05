@@ -108,3 +108,4 @@ venv.bak/
 
 # Externally added files
 .idea/
+get-pip.py
